@@ -1,3 +1,5 @@
+/** Thanks to the code from https://github.com/apsun/AbsoluteTouch **/
+
 #ifndef INPUT_HELPER_H
 #define INPUT_HELPER_H
 

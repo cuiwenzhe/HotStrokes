@@ -1,3 +1,5 @@
+/** Thanks to the code from https://github.com/apsun/AbsoluteTouch **/
+
 #include "InitGesture.h"
 #include "ExternContainer.h"
 DWORD g_mainThreadId = 0;

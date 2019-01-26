@@ -1,3 +1,5 @@
+/** Thanks to the code from https://github.com/apsun/AbsoluteTouch **/
+
 #include "InputHelper.h"
 #include <Windows.h>
 

@@ -1,3 +1,4 @@
+/** Thanks to the code from https://github.com/apsun/AbsoluteTouch **/
 #ifndef GESUTURE_TOUCH_CALLBACK_H
 #define GESUTURE_TOUCH_CALLBACK_H
 

@@ -1,3 +1,5 @@
+/** Thanks to the code from https://github.com/apsun/AbsoluteTouch **/
+
 #include "GestureTouchCallback.h"
 #include "Containers.h"
 #include "CoordinateMapper.h"

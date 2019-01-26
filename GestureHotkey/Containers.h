@@ -1,3 +1,5 @@
+/** Thanks to the code from https://github.com/apsun/AbsoluteTouch **/
+
 #ifndef CONTAINERS_H
 #define CONTAINERS_H
 

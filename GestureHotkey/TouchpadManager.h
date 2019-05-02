@@ -25,6 +25,7 @@ public:
     TouchpadManager();
     bool Acquire();
     void Unacquire();
+	void reinitialize();
     void SetTouchCallback(TouchCallback *callback);
     bool IsTouchpadEnabled();
     void SetTouchpadEnabled(bool enabled);

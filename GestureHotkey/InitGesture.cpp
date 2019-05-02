@@ -113,6 +113,9 @@ int InitGesture(int argc, char *argv[])
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 		int key = 0;
+	
+		//
+		g_touchpadManager->reinitialize();
 		
 		if (msg.message == WM_KEYDOWN || msg.message == WM_SYSKEYDOWN)
 		{
@@ -140,9 +143,19 @@ int InitGesture(int argc, char *argv[])
 			else if (bShift) {
 				msgstr = "shift+";
 			}
-			char nChar = msg.wParam;
-			if (nChar >= 'A' && nChar <= 'Z') {
-				msgstr.push_back(nChar - 'A' + 'a');
+			
+			
+			UINT test = MapVirtualKeyA(msg.wParam, MAPVK_VK_TO_CHAR);
+		
+			char nChar = test;
+		
+			if (nChar >= 33 && nChar <= 158) {
+				if (nChar >= 'A' && nChar <= 'Z') {
+					msgstr.push_back(nChar - 'A' + 'a');			
+				}
+				else {
+					msgstr.push_back(nChar);
+				}
 				if (msgstr.length() > 1)//make sure it is not an letter input
 				{
 					std::string letter = "";

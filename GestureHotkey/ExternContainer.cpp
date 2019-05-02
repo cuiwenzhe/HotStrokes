@@ -63,9 +63,10 @@ void InterfaceHandler::triggerHotkey(std::string command)
 	if (command == "stop") {
 		//combineToKeyboard("Ctrl+S");
 		//Sleep(100);
-		//pop_window_p->show();
-		//pop_window_p->showTextRed("BOMB\nTERMINATED");
-
+		pop_window_p->show();
+		pop_window_p->showTextRed("TERMINATED");
+		Sleep(1000);
+		exit(true);
 	}
 	else if (command == "define") {
 		pop_window_p->show();
@@ -86,9 +87,9 @@ void InterfaceHandler::triggerHotkey(std::string command)
 void InterfaceHandler::setStrokeColorByName(std::string str) {
 	int r, g, b;
 	if (str.length() >= 3) {
-		r = (int)(((str[0] - 'a') % 26) / 26.0 * 200) + 30;
-		g = (int)(((str[1] - 'a') % 26) / 26.0 * 200) + 30;
-		b = (int)(((str[2] - 'a') % 26) / 26.0 * 200) + 30;
+		r = (int)(((str[0] - 'a') % 26) / 26.0 * 140) + 87;
+		g = (int)(((str[1] - 'a') % 26) / 26.0 * 140) + 87;
+		b = (int)(((str[2] - 'a') % 26) / 26.0 * 140) + 87;
 	}
 
 	penColor.setRed(r);
@@ -225,6 +226,7 @@ std::vector<char> InterfaceHandler::splitStringToVector(std::string str) {
 	while (std::getline(ss, token, '+')) {
 		strVector.push_back(token);
 		std::transform(token.begin(), token.end(), token.begin(), ::tolower);
+		//Convert token to vk_code
 		if (token == "ctrl")
 			cmdVector.push_back(VK_LCONTROL);
 		else if (token == "alt")
@@ -237,10 +239,10 @@ std::vector<char> InterfaceHandler::splitStringToVector(std::string str) {
 		else if (token.size() == 1) {
 			if ((token[0] >= '0') && (token[0] <= '9'))
 				cmdVector.push_back(token[0]);
-			else
+			else if((token[0] >= 'a') && (token[0] <= 'z'))
 				cmdVector.push_back(toupper(token[0]));
-			//cmdVector.push_back(token[0]);
-
+			else
+				cmdVector.push_back(VkKeyScanA(token[0]));
 		}
 	}
 	return cmdVector;
@@ -297,8 +299,10 @@ void InterfaceHandler::showCanvas()
 	test_window_p->setWindowFlags(Qt::FramelessWindowHint);
 	test_window_p->setAttribute(Qt::WA_TranslucentBackground, true);
 	test_window_p->setWindowOpacity(TRANSPARENCY);
-	test_window_p->activateWindow();
+	
 	test_window_p->show();
+	test_window_p->raise();
+	test_window_p->activateWindow();
 }
 
 void InterfaceHandler::hideCanvas()

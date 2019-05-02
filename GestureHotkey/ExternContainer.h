@@ -31,7 +31,8 @@ class InterfaceHandler {
 public:
 	InterfaceHandler():test_window_p(NULL), word_window_p(NULL), pop_window_p(NULL){}
 	InterfaceHandler(GestureHotkey* tw)
-		:test_window_p(tw){}
+		:test_window_p(tw){
+	}
 	void setTestWindow(GestureHotkey* tw) { test_window_p = tw; }
 	void setWordWindow(WordWindow* ww) { word_window_p = ww; }
 	void setPopWindow(WordWindow* pw) { pop_window_p = pw; }

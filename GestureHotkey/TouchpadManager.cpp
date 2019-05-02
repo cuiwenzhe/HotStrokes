@@ -28,6 +28,14 @@ TouchpadManager::TouchpadManager()
     ASSERT_OK(m_device->GetProperty(SP_YLoSensor, &m_bounds.y1));
     ASSERT_OK(m_device->GetProperty(SP_YHiSensor, &m_bounds.y2));
 }
+void TouchpadManager::reinitialize()
+{
+	ASSERT_OK(m_device->CreatePacket(&m_packet));
+	ASSERT_OK(m_device->GetProperty(SP_XLoSensor, &m_bounds.x1));
+	ASSERT_OK(m_device->GetProperty(SP_XHiSensor, &m_bounds.x2));
+	ASSERT_OK(m_device->GetProperty(SP_YLoSensor, &m_bounds.y1));
+	ASSERT_OK(m_device->GetProperty(SP_YHiSensor, &m_bounds.y2));
+}
 
 bool TouchpadManager::Acquire()
 {
@@ -46,6 +54,8 @@ void TouchpadManager::Unacquire()
     ASSERT_OK(m_device->Unacquire());
     m_acquired = false;
 }
+
+
 
 void TouchpadManager::SetTouchCallback(TouchCallback *callback)
 {

@@ -15,7 +15,7 @@ theme,Alt+G+H,powerpnt
 picture,Alt+N+P,powerpnt
 slide,Alt+N+S+I,powerpnt
 size,Alt+H+F+S,powerpnt
-text,Alt+I+X+H,powerpnt
+text,Alt+N+X+H,powerpnt
 define,Ctrl+Shift+Alt+d,-
 stop,Ctrl+S,-
 save,Ctrl+S,-
@@ -27,5 +27,5 @@ new,Ctrl+N,-
 explorer,win+E,-
 desktop,win+D,-
 run,win+R,-
-task,win+Rs,-
 file,ctrl+o,devenv
+tab,ctrl+t,applicationframehost

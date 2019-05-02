@@ -33,9 +33,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GestureHotkey.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CommandLineArgs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -78,13 +75,16 @@
     <ClCompile Include="AnimationLine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GestureHotkey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="GestureHotkey.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="AnimationLine.h">
       <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="GestureHotkey.h">
+      <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

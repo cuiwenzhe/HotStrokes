@@ -20,10 +20,11 @@ int main(int argc, char *argv[])
 	//std::string ss = interface_handler.GetActiveWindowTitle();
 	pw.hide();
 	
-	InitGesture(argc, argv);
 	w.setWindowFlags(Qt::FramelessWindowHint);
 	w.setAttribute(Qt::WA_TranslucentBackground, true);
 	w.setWindowOpacity(TRANSPARENCY);
+	InitGesture(argc, argv);
+	
 	/*mw.setWindowFlags(Qt::FramelessWindowHint);
 	mw.setAttribute(Qt::WA_TranslucentBackground, true);
 	mw.setAttribute(Qt::WA_ShowWithoutActivating);

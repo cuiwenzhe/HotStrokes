@@ -2,6 +2,8 @@
 
 #include "InitGesture.h"
 #include "ExternContainer.h"
+int m_argc;
+char **m_argv;
 DWORD g_mainThreadId = 0;
 std::atomic<bool> g_cleanupFinished = false;
 TouchpadManager *g_touchpadManager = nullptr;
@@ -48,12 +50,15 @@ BOOL WINAPI OnConsoleSignal(DWORD signal)
 	}
 	return FALSE;
 }
-
-
-
+void reinitializeTouchpad() {
+	CleanUp();
+	g_cleanupFinished = true;
+	InitGesture(m_argc, m_argv);
+}
 int InitGesture(int argc, char *argv[])
 {
-	
+	m_argc = argc;
+	m_argv = argv;
 	CommandLineArgs args(argc, argv);
 	if (!args.ok) {
 		return 1;
@@ -113,9 +118,6 @@ int InitGesture(int argc, char *argv[])
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 		int key = 0;
-	
-		//
-		g_touchpadManager->reinitialize();
 		
 		if (msg.message == WM_KEYDOWN || msg.message == WM_SYSKEYDOWN)
 		{
@@ -164,9 +166,12 @@ int InitGesture(int argc, char *argv[])
 				}
 			}
 		}
+		else if (msg.message == 9527) {
+			break;
+		}
 	}
 	CleanUp();
 	g_cleanupFinished = true;
 	return 0;
-
 }
+

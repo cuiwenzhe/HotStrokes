@@ -1,4 +1,5 @@
 <RCC>
     <qresource prefix="GestureHotkey">
+      <file>Resources/Gesture.png</file>
     </qresource>
 </RCC>

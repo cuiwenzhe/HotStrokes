@@ -1,5 +1,5 @@
 #include "ExternContainer.h"
-#include "GestureHotkey.h"
+#include "QTWindows.h"
 #include "TestGroup.h"
 #include "windows.h"
 #include "Appmodel.h"
@@ -47,6 +47,12 @@ void InterfaceHandler::checkShortcut(std::string str)
 	}
 }
 
+void InterfaceHandler::reInitialTouchpad()
+{
+	SendMessage(HWND_BROADCAST,9527,NULL,NULL);
+	reinitializeTouchpad();
+}
+
 void InterfaceHandler::triggerCurrentHotkey()
 {
 	if (current_word != "") {
@@ -60,7 +66,7 @@ void InterfaceHandler::triggerHotkey(std::string command)
 {
 
 	std::string hotkey;
-	if (command == "stop") {
+	/*if (command == "stop") {
 		//combineToKeyboard("Ctrl+S");
 		//Sleep(100);
 		pop_window_p->show();
@@ -68,7 +74,8 @@ void InterfaceHandler::triggerHotkey(std::string command)
 		Sleep(1000);
 		exit(true);
 	}
-	else if (command == "define") {
+	else */ 
+	if (command == "define") {
 		pop_window_p->show();
 		pop_window_p->showTextRed("Command");
 	}
@@ -295,7 +302,9 @@ void InterfaceHandler::clear_canvas()
 
 void InterfaceHandler::showCanvas()
 {
-	test_window_p = new GestureHotkey();
+	if (test_window_p == NULL) {
+		test_window_p = new SettingWindow();
+	}
 	test_window_p->setWindowFlags(Qt::FramelessWindowHint);
 	test_window_p->setAttribute(Qt::WA_TranslucentBackground, true);
 	test_window_p->setWindowOpacity(TRANSPARENCY);

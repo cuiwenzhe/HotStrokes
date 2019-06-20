@@ -15,5 +15,6 @@
 #include <Windows.h>
 
 int InitGesture(int argc, char *argv[]);
+void reinitializeTouchpad();
 
 #endif

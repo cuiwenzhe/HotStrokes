@@ -18,8 +18,9 @@
 #include "TestGroup.h"
 #include "Dictionary.h"
 #include "TraceLog.h"
-#include "GestureHotkey.h"
+#include "QTWindows.h"
 #include "WindowHotkey.h"
+#include "InitGesture.h"
 #include <QColor>
 
 extern TraceLog tracelog;
@@ -29,12 +30,11 @@ extern bool gesture_test_flag;
 
 class InterfaceHandler {
 public:
-	InterfaceHandler():test_window_p(NULL), word_window_p(NULL), pop_window_p(NULL){}
-	InterfaceHandler(GestureHotkey* tw)
+	InterfaceHandler():test_window_p(NULL), pop_window_p(NULL){}
+	InterfaceHandler(SettingWindow* tw)
 		:test_window_p(tw){
 	}
-	void setTestWindow(GestureHotkey* tw) { test_window_p = tw; }
-	void setWordWindow(WordWindow* ww) { word_window_p = ww; }
+	void setSettingWindow(SettingWindow* tw) { test_window_p = tw; }
 	void setPopWindow(WordWindow* pw) { pop_window_p = pw; }
 	
 	void triggerCurrentHotkey();
@@ -55,13 +55,13 @@ public:
 	void showCanvas();
 	void hideCanvas();
 	void checkShortcut(std::string);
+	void reInitialTouchpad();
 	//void draw_point(Point<long>&);
 public:
 	std::map<std::string, WindowHotkey*> window_hotkey_map;
 private:
 	std::map<std::string, WindowHotkey*>::iterator window_hotkey_iter;
-	GestureHotkey * test_window_p;
-	WordWindow *word_window_p;
+	SettingWindow * test_window_p;
 	WordWindow *pop_window_p;
 	std::string wordstr;
 	std::string current_word="";

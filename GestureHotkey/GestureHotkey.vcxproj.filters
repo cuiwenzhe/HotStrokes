@@ -75,7 +75,7 @@
     <ClCompile Include="AnimationLine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GestureHotkey.cpp">
+    <ClCompile Include="QTWindows.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,8 +83,8 @@
     <QtMoc Include="AnimationLine.h">
       <Filter>Source Files</Filter>
     </QtMoc>
-    <QtMoc Include="GestureHotkey.h">
-      <Filter>Header Files</Filter>
+    <QtMoc Include="QTWindows.h">
+      <Filter>Source Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +152,6 @@
     <ClInclude Include="Keyboard.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="TestGroup.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -179,6 +176,9 @@
     <ClInclude Include="WindowHotkey.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="menu_command.txt">
@@ -187,5 +187,11 @@
     <Text Include="menu_hotkey_label.txt">
       <Filter>Source Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GestureHotkey.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\Desktop\Gesture.png" />
   </ItemGroup>
 </Project>
